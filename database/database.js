@@ -2,7 +2,7 @@
 const sequelize = require('sequelize'); 
 
 // transfomando a const "sequelize" em uma const "connection"
-const connection = sequelize(
+const connection = new sequelize(
     'bd_loja_c&p', // nome do banco
     'root', // usuário do banco
     '', // senha do banco
