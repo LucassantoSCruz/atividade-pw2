@@ -1,22 +1,22 @@
 {
-  "name": "lucas-s-cruz-atividade-de-pw2",
+  "name": "atividade-pw",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":"nodemon index.js"
   },
   "keywords": [
-    "ATIVIDADE",
     "ETEC",
-    "PW2",
-    "REDE SOCIAL"
+    "BARUERI",
+    "PW",
+    "ATIVIDADE"
   ],
-  "author": "Lucas S Cruz",
+  "author": "Lucas S. Cruz",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1",
+    "express": "^4.18.2",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.23.2"
+    "sequelize": "^6.26.0"
   }
 }
