@@ -1,5 +1,4 @@
 /*IMPORTA O PACOTE DO EXPRESS PARA O SCRIPT index.js*/
-const { response } = require('express');
 const express = require('express');
 
 const modelCategoria = require('../model/modelCategorias');
@@ -126,15 +125,23 @@ router.put('/alterarCategoria', (req, res)=>{
     {nome_categoria},
     {where:{cod_categoria}}
 
-  ).then(
-
-    ()=>{
-      return res.status(200).json({
-        erroStatus:false,
-        mensagemStatus:"CATEGORIA ALTERADA COM SUCESSO."
-      })
-    });
-  });
+    ).then(
+      ()=>{
+          return res.status(200).json({
+              erroStatus: false,
+              mensagemStatus:"CATEGORIA ALTERADA COM SUCESSO."
+          })
+      }
+  ).catch(
+      (error)=>{
+          return res.status(400).json({
+              erroStatus: true,
+              mensagemStatus: "ERRO AO ALTERAR A CATEGORIA.",
+              errorObject:error
+          })
+      }
+  )
+})
 
 //ROTA DE EXCLUSÃO DE CATEGORIAS
 router.delete('/excluirCategoria/:cod_categoria', (req, res)=>{

@@ -1,5 +1,4 @@
 //Importação do pacote express
-const { response } = require('express');
 const express = require('express');
 
 //importação da model
@@ -18,15 +17,15 @@ router.post('/cadastrarMarca', (req, res)=>{
         ()=>{
             return res.status(201).json({
                 erroStatus:false,
-                mensagemStatus:"MARCA INSERIDA COM SUCESSO."
+                mensagemStatus:"MARCA CADASTRADA COM SUCESSO."
             })
         }
     ).catch(
         (error)=>{
             return res.status(400).json({
-              errorStatus:true,
-              mensagemStatus:"ERRO AO CADASTRAR A MARCA.",
-              errorObject:error
+                errorStatus:true,
+                mensagemStatus:"ERRO AO CADASTRAR A MARCA.",
+                errorObject:error
             });
         }
     );
@@ -62,16 +61,16 @@ router.get('/listarMarcaPK/:cod_marca', (req, res)=>{
         (response)=>{
             return res.status(200).json({
                 erroStatus:false,
-                mensagemStatus:"MARCA RECUPERADA COM SUCESSO.",
+                mensagemStatus:"MARCA LISTADAS COM SUCESSO.",
                 data:response
             })
         }
     ).catch(
         (error)=>{
             return res.status(400).json({
-              erroStatus:true,
-              mensagemStatus:"ERRO AO RECUPERAR A MARCA.",
-              errorObject:error
+                erroStatus:true,
+                mensagemStatus:"ERRO AO LISTAR A MARCA.",
+                errorObject:error
             });
         }
     )
@@ -86,18 +85,18 @@ router.get('/listarMarcaNOME/:nome_marca', (req, res)=>{
     }).then(
         (response)=>{
             return res.status(200).json({
-              erroStatus:false,
-              mensagemStatus:"MARCA RECUPERADA COM SUCESSO.",
-              data:response
+                erroStatus:false,
+                mensagemStatus:"MARCA LISTADAS COM SUCESSO.",
+                data:response
             })
         }
     ).catch(
         (error)=>{
             return res.status(400).json({
-              erroStatus:true,
-              mensagemStatus:"ERRO AO RECUPERAR A CATEGORIA.",
-              data:response,
-              errorObject:error
+                erroStatus:true,
+                mensagemStatus:"ERRO AO LISTAR A MARCA.",
+                data:response,
+                errorObject:error
             })
         }
     )
@@ -114,6 +113,14 @@ router.put('/alterarMarca', (req, res)=>{
             return res.status(200).json({
                 erroStatus: false,
                 mensagemStatus:"MARCA ALTERADA COM SUCESSO."
+            })
+        }
+    ).catch(
+        (error)=>{
+            return res.status(400).json({
+                erroStatus: true,
+                mensagemStatus: "ERRO AO ALTERAR A MARCA.",
+                errorObject:error
             })
         }
     )
@@ -136,7 +143,7 @@ router.delete('/excluirMarca/:cod_marca', (req, res)=>{
         (error)=>{
             return res.status(400).json({
                 erroStatus: true,
-                mensagemStatus: "ERRO AO EXCLUIR A CATEGORIA.",
+                mensagemStatus: "ERRO AO EXCLUIR A MARCA.",
                 errorObject:error
             })
         }
